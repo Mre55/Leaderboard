@@ -1,4 +1,3 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -13,8 +12,7 @@ module.exports = {
     }),
   ],
   output: {
-    filename: 'main.js',
-    publicPath: "/Leaderboard/",
+    publicPath: '/Leaderboard/',
   },
   module: {
     rules: [

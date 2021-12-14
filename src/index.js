@@ -1,14 +1,30 @@
-import _ from 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+const displayTable = document.querySelector('.display-table');
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const displayScore = [
+  {
+    Name: 'Mire',
+    Score: 100,
+  },
+  {
+    Name: 'Biruk',
+    Score: 30,
+  },
+  {
+    Name: 'Bini',
+    Score: 50,
+  },
+  {
+    Name: 'Sami',
+    Score: 90,
+  },
+  {
+    Name: 'Yoni',
+    Score: 70,
+  },
+];
 
-  return element;
-}
-
-document.body.appendChild(component());
+displayTable.innerHTML = displayScore.map((e) => `
+        <p class="display-table-list">${e.Name}: ${e.Score}</p>
+    `).join('');

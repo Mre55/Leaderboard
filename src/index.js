@@ -7,7 +7,7 @@ const displayLists = document.getElementById('display-lists');
 const refreshBtn = document.querySelector('.refresh-btn');
 
 // Unique identifier of the created game
-const gameId = 'j3pbXgKmDrCFgfpG7CfU';
+const gameId = '93QPMhMcw6XwqsPyEv3M';
 
 const submitScore = async (userName, userScore) => {
   const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`, {

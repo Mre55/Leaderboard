@@ -7,7 +7,7 @@ const displayLists = document.getElementById('display-lists');
 const refreshBtn = document.querySelector('.refresh-btn');
 
 // Unique identifier of the created game
-const gameId = 'j3pbXgKmDrCFgfpG7CfU';
+const gameId = 'EHfgaM87mP9B9h6CrDt5';
 
 const submitScore = async (userName, userScore) => {
   const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`, {
@@ -34,11 +34,11 @@ const fetchDataFromAPI = async () => {
   displayLists.innerHTML = values;
 };
 
-submitBtn.addEventListener('click', async () => {
+submitBtn.addEventListener('click', async (e) => {
+  e.preventDefault();
   await submitScore(inputName.value, inputScore.value);
   inputName.value = '';
   inputScore.value = '';
-  fetchDataFromAPI();
 });
 
 refreshBtn.addEventListener('click', async () => {

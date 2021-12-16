@@ -13,6 +13,10 @@ This project is about Leaderboard list app, that allows users to add score to th
 - Frameworks - No Frameworks Used
 - Tools used - Git(version control), WebHint(linting tool), Stylelint(style linting), ESLint(Javascript linting).
 
+## Live Demo
+
+[Live Demo Link](https://mre55.github.io/Leaderboard/dist/)
+
 ## Getting Started
 
 **To use this project you need to clone the repository to your local machine, and open the folder then run index.html file which is the main file of the project.**

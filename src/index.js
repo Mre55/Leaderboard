@@ -9,7 +9,7 @@ const refreshBtn = document.querySelector('.refresh-btn');
 // Unique identifier of the created game
 const gameId = 'j3pbXgKmDrCFgfpG7CfU';
 
-async function submitScore(userName, userScore) {
+const submitScore = async (userName, userScore) => {
   const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`, {
     method: 'POST',
     body: JSON.stringify({
@@ -24,7 +24,7 @@ async function submitScore(userName, userScore) {
   return gameResult;
 }
 
-async function fetchDataFromAPI() {
+const fetchDataFromAPI = async () => {
   const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`);
   const getResult = await response.json();
   const resultArray = getResult.result;

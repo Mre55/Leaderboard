@@ -22,7 +22,7 @@ const submitScore = async (userName, userScore) => {
   });
   const gameResult = await response.json();
   return gameResult;
-}
+};
 
 const fetchDataFromAPI = async () => {
   const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`);
@@ -32,7 +32,7 @@ const fetchDataFromAPI = async () => {
                       <p>${result.user}: ${result.score}</p>
                   </div>`).join('');
   displayLists.innerHTML = values;
-}
+};
 
 submitBtn.addEventListener('click', async () => {
   await submitScore(inputName.value, inputScore.value);

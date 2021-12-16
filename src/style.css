@@ -49,7 +49,7 @@ main h2 {
   border: 3px solid;
 }
 
-.add-btn {
+.submit-btn {
   display: flex;
   justify-content: end;
   width: 50%;

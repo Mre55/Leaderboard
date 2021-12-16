@@ -1,30 +1,26 @@
 import './style.css';
 
-const displayTable = document.querySelector('.display-table');
+const inputName = document.querySelector('.input-name');
+const inputScore = document.querySelector('.input-score');
+const submitBtn = document.querySelector('.submit-btn')
 
-const displayScore = [
-  {
-    Name: 'Mire',
-    Score: 100,
-  },
-  {
-    Name: 'Biruk',
-    Score: 30,
-  },
-  {
-    Name: 'Bini',
-    Score: 50,
-  },
-  {
-    Name: 'Sami',
-    Score: 90,
-  },
-  {
-    Name: 'Yoni',
-    Score: 70,
-  },
-];
+submitBtn.addEventListener('click', async () => {
+    const result = await submitScore(inputName.value, inputScore.value);
+    inputName.value = '';
+    inputScore.value = '';
+})
 
-displayTable.innerHTML = displayScore.map((e) => `
-        <p class="display-table-list">${e.Name}: ${e.Score}</p>
-    `).join('');
+async function submitScore(userName, userScore) {
+    const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`, {
+        method: 'POST',
+        body: JSON.stringify({
+            user: userName,
+            score: userScore
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+    const gameResult = await response.json();
+    return gameResult;
+}

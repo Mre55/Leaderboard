@@ -76,10 +76,19 @@ form input {
   border: 5px solid black;
 }
 
-.display-table-list {
+#display-lists {
+  margin: 0;
+  padding: 0;
+}
+
+.display-table-list p {
   margin: 0;
   font-size: 20px;
   line-height: 40px;
+}
+
+.display-table-list {
+  padding-left: 20px;
 }
 
 .display-table-list:nth-child(even) {

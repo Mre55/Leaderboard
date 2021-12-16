@@ -40,7 +40,7 @@ async function fetchDataFromAPI() {
     const getResult = await response.json();
     let resultArray = getResult.result;
     const values = resultArray.map(function(result) {
-        return `<div>
+        return `<div class="display-table-list">
                     <p>${result.user}: ${result.score}</p>
                 </div>`
       }).join('');

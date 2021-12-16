@@ -4,13 +4,21 @@ const inputName = document.querySelector('.input-name');
 const inputScore = document.querySelector('.input-score');
 const submitBtn = document.querySelector('.submit-btn');
 const displayLists = document.getElementById('display-lists');
+const refreshBtn = document.querySelector('.refresh-btn');
+
+//Unique identifier of the created game
 let gameId = 'j3pbXgKmDrCFgfpG7CfU';
 
 submitBtn.addEventListener('click', async () => {
     const result = await submitScore(inputName.value, inputScore.value);
     inputName.value = '';
     inputScore.value = '';
+    fetchDataFromAPI();
 });
+
+refreshBtn.addEventListener('click', async() => {
+    fetchDataFromAPI();
+})
 
 async function submitScore(userName, userScore) {
     const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`, {
@@ -30,11 +38,11 @@ async function submitScore(userName, userScore) {
 async function fetchDataFromAPI() {
     const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`)
     const getResult = await response.json();
-    let authors = getResult.result;
-    const values = authors.map(function(author) {
+    let resultArray = getResult.result;
+    const values = resultArray.map(function(result) {
         return `<div>
-            <p>${author.user}: ${author.score}</p>
-        </div>`
+                    <p>${result.user}: ${result.score}</p>
+                </div>`
       }).join('');
       displayLists.innerHTML = values;
 };

@@ -25,7 +25,7 @@ To work on this project locally you need to have Node.js installed in your machi
 
 ### Setup
 
-You need to have text editor (VS code, Atom) or any of your choice.
+To setup this project first you should have to clone the repository and the go to the projects directory and run npm install command to install the needed dependency. After that run npm start command to run the project from local server to http://localhost:8080/.
 
 ### Install
 

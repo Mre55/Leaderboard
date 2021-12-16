@@ -2,7 +2,7 @@
 
 This project is about Leaderboard list app, that allows users to add score to the list and refresh the list. 
 
-<img width="765" alt="Screen Shot 2021-12-08 at 6 16 50 PM" src="https://user-images.githubusercontent.com/34578631/146088296-53025752-bc11-46a9-af70-47e20670a144.png">
+<img width="765" alt="Screen Shot 2021-12-08 at 6 16 50 PM" src="https://user-images.githubusercontent.com/34578631/146454485-d3be396a-5ee5-468b-b309-a9616ca54e65.png">
 
 
 ## Built With

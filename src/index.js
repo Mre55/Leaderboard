@@ -1,50 +1,22 @@
 import './style.css';
+import APIhandler from './APIhandler.js';
 
 const inputName = document.querySelector('.input-name');
 const inputScore = document.querySelector('.input-score');
 const submitBtn = document.querySelector('.submit-btn');
-const displayLists = document.getElementById('display-lists');
 const refreshBtn = document.querySelector('.refresh-btn');
-
-// Unique identifier of the created game
-const gameId = 'EHfgaM87mP9B9h6CrDt5';
-
-const submitScore = async (userName, userScore) => {
-  const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`, {
-    method: 'POST',
-    body: JSON.stringify({
-      user: userName,
-      score: userScore,
-    }),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  });
-  const gameResult = await response.json();
-  return gameResult;
-};
-
-const fetchDataFromAPI = async () => {
-  const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`);
-  const getResult = await response.json();
-  const resultArray = getResult.result;
-  const values = resultArray.map((result) => `<div class="display-table-list">
-                      <p>${result.user}: ${result.score}</p>
-                  </div>`).join('');
-  displayLists.innerHTML = values;
-};
 
 submitBtn.addEventListener('click', async (e) => {
   e.preventDefault();
-  await submitScore(inputName.value, inputScore.value);
+  await APIhandler.submitScore(inputName.value, inputScore.value);
   inputName.value = '';
   inputScore.value = '';
 });
 
 refreshBtn.addEventListener('click', async () => {
-  fetchDataFromAPI();
+  APIhandler.fetchDataFromAPI();
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
-  fetchDataFromAPI();
+  APIhandler.fetchDataFromAPI();
 });
